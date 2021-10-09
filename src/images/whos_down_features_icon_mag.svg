@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="85.237" height="85.237" viewBox="0 0 85.237 85.237">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_621" data-name="Rectangle 621" width="55.367" height="55.367" transform="translate(0 0)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_2832" data-name="Group 2832" transform="translate(20.283 -2259.937)">
+    <circle id="Ellipse_45" data-name="Ellipse 45" cx="37.5" cy="37.5" r="37.5" transform="translate(-15 2265)" fill="#fff"/>
+    <g id="Group_366" data-name="Group 366" transform="translate(-20.588 2271.33) rotate(-9)">
+      <g id="Group_365" data-name="Group 365" transform="translate(0 0)">
+        <g id="Group_364" data-name="Group 364">
+          <g id="Group_363" data-name="Group 363">
+            <path id="Path_176" data-name="Path 176" d="M652.7,822.242a37.25,37.25,0,1,1,26.62-11.193,1.659,1.659,0,0,1-2.37-2.321,33.849,33.849,0,1,0-7.7,5.9,1.659,1.659,0,1,1,1.62,2.9A37.277,37.277,0,0,1,652.7,822.242Z" transform="translate(-615.195 -747.437)" fill="#020a28"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="Group_2764" data-name="Group 2764" transform="translate(-1 2278.001)">
+      <g id="Group_2763" data-name="Group 2763" clip-path="url(#clip-path)">
+        <line id="Line_130" data-name="Line 130" x2="17.369" y2="17.37" transform="translate(34.997 34.997)" fill="none" stroke="#020a28" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
+        <path id="Path_1036" data-name="Path 1036" d="M35,8.49a18.744,18.744,0,1,1-26.508,0A18.745,18.745,0,0,1,35,8.49Z" fill="none" stroke="#d7263d" stroke-miterlimit="10" stroke-width="6"/>
+      </g>
+    </g>
+  </g>
+</svg>
