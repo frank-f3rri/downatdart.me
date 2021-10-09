@@ -48,9 +48,8 @@ const App = (props) => {
             <Route path="/create" component={Create} />
             <Route path="/legal" component={Legal} />
             <Route path="/about" component={About} />
-            <Route path="/link/*" component={Download} />
-            <Route path="/joinCircleFallback" component={joinCircleFallback} />
-            <Route path="/eventShareFallback" component={eventShareFallback} />
+            <Route path="/link/circlelink*" component={joinCircleFallback} />
+            <Route path="/link/events*" component={eventShareFallback} />
             <Route component={FallBack} />
           </Switch>
           <Footer />
