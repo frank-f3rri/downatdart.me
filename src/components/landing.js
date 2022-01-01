@@ -9,6 +9,7 @@ import Infographic2 from '../img/mockups/article_graphic_2.png';
 import Infographic3 from '../img/mockups/infographic.png';
 import AppStoreLogo from '../img/app_store.png';
 import { collectUserEmail } from '../actions';
+import Redesign from './redesign';
 
 class Landing extends Component {
   constructor(props) {
@@ -42,6 +43,9 @@ class Landing extends Component {
   }
 
   render() {
+    if (true) {
+      return (<Redesign />);
+    }
     return (
       <div>
         <div className="titleBox" data-aos="zoom-out-down" data-aos-duration="2000">

@@ -36,26 +36,24 @@ const Explore = (props) => {
   return <MapView />;
 };
 
+
 const App = (props) => {
   return (
-    <div>
-      <Router>
-        <div>
-          <Nav />
-          <Switch>
-            <Route exact path="/" component={Landing} />
-            <Route path="/map" component={Explore} />
-            <Route path="/create" component={Create} />
-            <Route path="/legal" component={Legal} />
-            <Route path="/about" component={About} />
-            <Route path="/link/circlelink*" component={joinCircleFallback} />
-            <Route path="/link/events*" component={eventShareFallback} />
-            <Route component={FallBack} />
-          </Switch>
-          <Footer />
-        </div>
-      </Router>
-    </div>
+    <Router>
+      <Nav />
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/main" component={Landing} />
+        <Route path="/map" component={Explore} />
+        <Route path="/create" component={Create} />
+        <Route path="/legal" component={Legal} />
+        <Route path="/about" component={About} />
+        <Route path="/link/circlelink*" component={joinCircleFallback} />
+        <Route path="/link/events*" component={eventShareFallback} />
+        <Route component={FallBack} />
+      </Switch>
+      <Footer />
+    </Router>
   );
 };
 

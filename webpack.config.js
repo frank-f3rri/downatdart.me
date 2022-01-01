@@ -53,6 +53,10 @@ module.exports = {
         ],
       },
       {
+        test: /\.(woff|woff2|ttf|eot|ico)$/,
+        loader: 'file-loader?name=assets/[name].[hash].[ext]',
+      },
+      {
         test: /\.(jpe?g|png|gif|svg)$/,
         use: [
           {
