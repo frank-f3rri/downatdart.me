@@ -893,10 +893,10 @@ input:checked + .slider:before {
 }
 
 .section_hero {
-  margin-top: 110px;
-  margin-bottom: 110px;
-  padding-right: 140px;
-  padding-left: 140px;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  padding-right: 8%;
+  padding-left: 8%;
 }
 
 .section_benefits {
@@ -3358,11 +3358,11 @@ textarea.w-select {
   position: relative;
   display: block;
   overflow: hidden;
-  z-index: 1;
   left: 0;
   right: 0;
   height: 100%;
   white-space: nowrap;
+  background: #d7263d;
 }
 .w-slide {
   position: relative;

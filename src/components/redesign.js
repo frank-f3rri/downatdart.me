@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -8,11 +9,13 @@
 import React, { Component } from 'react';
 import useCustomScript from '../hooks/useCustomScript';
 import '../style.scss';
+import getWindowDimensions from '../hooks/getWindowDimensions';
 
 class Redesign extends Component {
   constructor(props) {
     super(props);
-    this.state = { debug: true, debug2: true };
+    this.state = { debug: false, debug2: true };
+    const { height, width } = getWindowDimensions();
   }
 
   renderSliderButtons = () => {
@@ -37,21 +40,25 @@ class Redesign extends Component {
           <div>
             <div className="div-block-9">
               <h2 className="heading-2">Finally, an app that offers:</h2>
-              <div className="slider-right">
-                <img src="src/images/icon_slider.arrow.right.svg" loading="lazy" alt="" />
-              </div>
-              <div className="slider-left">
-                <img src="src/images/icon_slider.arrow.left.svg" loading="lazy" alt="" />
-              </div>
-              <div data-delay="6000"
-                data-animation="slide"
-                data-autoplay="1"
-                data-duration="1000"
-                data-infinite="1"
-                id="flowbaseSlider"
-                className="slider w-slider"
-              >
-                <div className="w-slider-mask">
+
+              <div className="w-slider-mask">
+                <div data-delay="6000"
+                  data-animation="slide"
+                  data-autoplay="1"
+                  data-duration="1000"
+                  data-infinite="1"
+                  id="flowbaseSlider"
+                  className="slider w-slider"
+                >
+                  <div className="slider-left">
+                    <img src="src/images/icon_slider.arrow.left.svg" loading="lazy" alt="" />
+                  </div>
+                  <a onClick={() => { alert('hi'); }} role="button">
+                    <div className="slider-right">
+                      <img src="src/images/icon_slider.arrow.right.svg" loading="lazy" alt="" onClick={() => { alert('hi'); }} />
+                    </div>
+                  </a>
+
                   <div className="slide w-slide">
                     <div className="w-layout-grid grid-5">
                       <div className="div-block-18">
@@ -147,8 +154,7 @@ class Redesign extends Component {
                 <div className="w-layout-grid grid">
                   <div className="div-block-7">
                     <div className="div-block-16">
-                      <h1 className="header-1">Spontaneity organized</h1>
-                      <h1 className="header-1 red_period">.</h1>
+                      <h1 className="header-1">Spontaneity organized<span style={{ color: '#d7263d' }}>.</span></h1>
                     </div>
                     <p className="paragraph paragraph_hero">Who’s Down is the one stop shop to see what’s up and who’s down for
                       events near you. Discover, create, and stay up-to-date on the events that matter to you.
@@ -360,7 +366,7 @@ class Redesign extends Component {
                       loading="lazy"
                       width="810"
                       sizes="(max-width: 479px) 55vw, (max-width: 1919px) 72vw, 810.0000610351562px"
-                      srcSet="src/images/whos_down_listserv-p-500.png 500w, images/whos_down_listserv-p-800.png 800w, images/whos_down_listserv.png 1009w"
+                      srcSet="src/images/whos_down_listserv-p-500.png 500w, src/images/whos_down_listserv-p-800.png 800w, images/whos_down_listserv.png 1009w"
                       alt=""
                       className="image_listserv"
                     />
@@ -464,10 +470,6 @@ class Redesign extends Component {
           crossOrigin="anonymous"
         />
         <script src="webflow.js" type="text/javascript" />
-        <script type="text/javascript">
-          console.log('hi!')
-          alert("hi!")
-        </script>
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9" />
         <script src="../hooks/useCustomScript" />
       </div>
