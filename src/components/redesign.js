@@ -14,7 +14,7 @@ import getWindowDimensions from '../hooks/getWindowDimensions';
 class Redesign extends Component {
   constructor(props) {
     super(props);
-    this.state = { debug: false, debug2: true };
+    this.state = { debug: true, debug2: true };
     const { height, width } = getWindowDimensions();
   }
 
@@ -146,8 +146,9 @@ class Redesign extends Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div className="onTopOfTransform">
+        <div style={{ /* transform: 'scale(80%)' */}}>
+          {/* transform: 'scale(90%)' */}
           <div className="pagewrapper">
             <div className="section_hero">
               <div>
@@ -161,16 +162,14 @@ class Redesign extends Component {
                     </p>
                     <a href="#DownloadCTA" className="button_cta_red button_hero w-button">Download</a>
                   </div>
-                  <div>
-                    <img src="src/images/whos_down_hero_image.png"
-                      loading="lazy"
-                      width="563"
-                      sizes="(max-width: 767px) 250.00001525878906px, (max-width: 991px) 350.0000305175781px, 700.0000610351562px"
-                      srcSet="src/images/whos_down_hero_image-p-500.png 500w, src/images/whos_down_hero_image.png 722w"
-                      alt=""
-                      className="image_hero"
-                    />
-                  </div>
+                  <img src="src/images/whos_down_hero_image.png"
+                    loading="lazy"
+                    width="563"
+                    sizes="(max-width: 767px) 250.00001525878906px, (max-width: 991px) 350.0000305175781px, 700.0000610351562px"
+                    srcSet="src/images/whos_down_hero_image-p-500.png 500w, src/images/whos_down_hero_image.png 722w"
+                    alt=""
+                    className="image_hero"
+                  />
                 </div>
               </div>
             </div>
@@ -276,8 +275,8 @@ class Redesign extends Component {
                 </p>
                 <div className="w-layout-grid grid-3">
                   <div id="w-node-8ba272a3a2b1-873e4a51" className="card_testimonial">
-                    <img src="src/images/testimonial_face_4-2.png" loading="lazy" width="60" alt="" className="card_testimonial_image" />
-                    <img src="src/images/circle_white.png" loading="lazy" width="655" alt="" className="circle_white" />
+                    <img src="src/images/testimonial_face_4-2.png" loading="lazy" alt="" className="card_testimonial_image" />
+                    <img src="src/images/circle_white.png" loading="lazy" alt="" className="circle_blue" />
                     <h4 className="heading_testimonial">Jennifer R.</h4>
                     <p className="paragraph_testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam ac massa.
                       Pellentesque quis justo faucibus.
@@ -311,7 +310,7 @@ class Redesign extends Component {
                       loading="lazy"
                       width="655"
                       alt=""
-                      className="circle_white"
+                      className="circle_blue"
                     />
                     <h4 className="heading_testimonial">Megan T.</h4>
                     <p className="paragraph_testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam ac massa.
@@ -347,7 +346,7 @@ class Redesign extends Component {
                       loading="lazy"
                       width="655"
                       alt=""
-                      className="circle_white"
+                      className="circle_blue"
                     />
                     <h4 className="heading_testimonial">Stacey B.</h4>
                     <p className="paragraph_testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam ac massa.
@@ -364,7 +363,8 @@ class Redesign extends Component {
                   <div className="div-block-22">
                     <img src="src/images/whos_down_listserv.png"
                       loading="lazy"
-                      width="810"
+                      width="750"
+                      height="400"
                       sizes="(max-width: 479px) 55vw, (max-width: 1919px) 72vw, 810.0000610351562px"
                       srcSet="src/images/whos_down_listserv-p-500.png 500w, src/images/whos_down_listserv-p-800.png 800w, images/whos_down_listserv.png 1009w"
                       alt=""
@@ -425,35 +425,36 @@ class Redesign extends Component {
                   >Google Play Download
                   </a>
                 </div>
-                <div className="div-block-17">
+                <div>
                   <p className="paragraph_social">Who&#x27;s Down Social</p>
+                  <div className="div_footer_social">
+                    <a href="#" className="w-inline-block"><img src="src/images/icon_social_linkedin.svg"
+                      loading="lazy"
+                      alt=""
+                      className="social_icons"
+                    />
+                    </a>
+                    <a href="#" className="w-inline-block"><img src="src/images/icon_social_instagram.svg"
+                      loading="lazy"
+                      alt=""
+                      className="social_icons"
+                    />
+                    </a>
+                    <a href="#" className="w-inline-block"><img src="src/images/icon_social_facebook.svg"
+                      loading="lazy"
+                      alt=""
+                      className="social_icons"
+                    />
+                    </a>
+                    <a href="#" className="w-inline-block"><img src="src/images/icon_social_twitter.svg"
+                      loading="lazy"
+                      alt=""
+                      className="social_icons"
+                    />
+                    </a>
+                  </div>
                 </div>
-                <div className="div_footer_social">
-                  <a href="#" className="w-inline-block"><img src="src/images/icon_social_linkedin.svg"
-                    loading="lazy"
-                    alt=""
-                    className="social_icons"
-                  />
-                  </a>
-                  <a href="#" className="w-inline-block"><img src="src/images/icon_social_instagram.svg"
-                    loading="lazy"
-                    alt=""
-                    className="social_icons"
-                  />
-                  </a>
-                  <a href="#" className="w-inline-block"><img src="src/images/icon_social_facebook.svg"
-                    loading="lazy"
-                    alt=""
-                    className="social_icons"
-                  />
-                  </a>
-                  <a href="#" className="w-inline-block"><img src="src/images/icon_social_twitter.svg"
-                    loading="lazy"
-                    alt=""
-                    className="social_icons"
-                  />
-                  </a>
-                </div>
+
               </div>
               <div className="div_footer_copywrite">
                 <p className="paragraph-5">© Who&#x27;s Down 2020. All rights reserved.</p>
