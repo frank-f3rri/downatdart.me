@@ -7,6 +7,23 @@ $fontfamily: "Montserrat", sans-serif;
   width: 100vw;
 }
 
+.inputAnimated {
+  background-color: #d7263d;
+  color: $backgroundcolor;
+  opacity: 1;
+  outline: #d7263d;
+}
+
+::placeholder{
+  color: $backgroundcolor;
+  outline: none;
+  outline-style: none;
+}
+
+[contenteditable="true"]:focus {
+  outline: none;
+}
+
 .heroContainer{
   left: -20%;
 }
@@ -1240,8 +1257,7 @@ input:checked + .slider:before {
 }
 
 .slide {
-  padding-right: 400px;
-  padding-left: 150px;
+  left: 500%;
 }
 
 .div-block-8 {
@@ -1401,6 +1417,14 @@ input:checked + .slider:before {
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
+}
+
+.slick-slide img {
+  margin: auto;
+}
+
+.slick-slider, .slick-initialized {
+  padding-left: 50%;
 }
 
 .slide-2 {

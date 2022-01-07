@@ -1,3 +1,7 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable max-len */
+/* eslint-disable react/no-unused-state */
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -7,141 +11,175 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 
 import React, { Component } from 'react';
-import useCustomScript from '../hooks/useCustomScript';
 import '../style.scss';
+import Typed from 'react-typed';
+import Slider from 'react-slick';
 import getWindowDimensions from '../hooks/getWindowDimensions';
 
 class Redesign extends Component {
   constructor(props) {
     super(props);
-    this.state = { debug: true, debug2: true };
+    this.state = { debug: true, debug2: true, slidePosn: 0 };
+    const sliderSettings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    };
     const { height, width } = getWindowDimensions();
   }
 
-  renderSliderButtons = () => {
-    if (this.state.debug2) {
-      return (
-        <>
-          <div className="left-arrow w-slider-arrow-left">
-            <div className="w-icon-slider-left" />
-          </div>
-          <div className="right-arrow w-slider-arrow-right">
-            <div className="icon w-icon-slider-right" />
-          </div>
-        </>
-      );
-    } else return null;
+  renderTypedText = () => {
+    return (
+      <div>
+        <Typed
+          strings={[
+            'go rock climbing,', 'go fishing,', 'play chess,', 'go hiking,']}
+          typeSpeed={75}
+          backSpeed={50}
+          loop
+          bindInputFocusEvents
+          backDelay={1000}
+          startDelay={1000}
+          smartBackspace
+          cursorChar=""
+        />
+      </div>
+    );
   }
+
+  // renderSliderButtons = () => {
+  //   if (this.state.debug2) {
+  //     return (
+  //       <>
+  //         <div className="left-arrow w-slider-arrow-left" role="button" onClick={() => { console.log('hey'); }}>
+  //           <div className="w-icon-slider-left" />
+  //         </div>
+  //         <div className="right-arrow w-slider-arrow-right">
+  //           <div className="icon w-icon-slider-right" />
+  //         </div>
+  //       </>
+  //     );
+  //   } else return null;
+  // }
 
   renderSectionFeatures = () => {
     if (this.state.debug) {
+      return (
+        <div className="section_benefits">
+          <h2> Single Item</h2>
+          <Slider {...this.sliderSettings}>
+            <div className="slick-slide">
+              <img src="http://placekitten.com/g/400/200" width={20000} />
+            </div>
+
+            <div className="slick-slide">
+              <img src="http://placekitten.com/g/400/200" />
+            </div>
+
+            <div className="slick-slide">
+              <img src="http://placekitten.com/g/400/200" />
+            </div>
+
+            <div className="slick-slide">
+              <img src="http://placekitten.com/g/400/200" />
+            </div>
+          </Slider>
+        </div>
+      );
+    } else {
       return (
         <div className="section_features">
           <div>
             <div className="div-block-9">
               <h2 className="heading-2">Finally, an app that offers:</h2>
+              <div className="slider-left">
+                <img src="src/images/icon_slider.arrow.left.svg" loading="lazy" alt="" />
+              </div>
 
-              <div className="w-slider-mask">
-                <div data-delay="6000"
-                  data-animation="slide"
-                  data-autoplay="1"
-                  data-duration="1000"
-                  data-infinite="1"
-                  id="flowbaseSlider"
-                  className="slider w-slider"
-                >
-                  <div className="slider-left">
-                    <img src="src/images/icon_slider.arrow.left.svg" loading="lazy" alt="" />
-                  </div>
-                  <a onClick={() => { alert('hi'); }} role="button">
-                    <div className="slider-right">
-                      <img src="src/images/icon_slider.arrow.right.svg" loading="lazy" alt="" onClick={() => { alert('hi'); }} />
-                    </div>
-                  </a>
+              <div className="slider-right">
+                <img src="src/images/icon_slider.arrow.right.svg" loading="lazy" alt="" onClick={() => { console.log('hi'); }} />
+              </div>
 
-                  <div className="slide w-slide">
-                    <div className="w-layout-grid grid-5">
-                      <div className="div-block-18">
-                        <img src="src/images/whos_down_features_1.png" loading="lazy" alt="" className="image_features" />
-                      </div>
-                      <div className="div-block-8">
-                        <img src="src/images/whos_down_features_icon_mag.svg" loading="lazy" alt="" className="features_icon" />
-                        <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" />
-                        <h4 className="header-4">Comprehensive event discovery</h4>
-                        <p className="paragraph">Extensive filtering, searching, and notification options let you find the
-                          events
-                          and people you’re interested in without getting flooded by the rest. With all events from blitz
-                          and
-                          more that aren’t, we make event discovery easy.
-                        </p>
-                      </div>
-                    </div>
+              <div className="slide w-slide">
+                <div className="w-layout-grid grid-5">
+                  <div className="div-block-18">
+                    <img src="src/images/whos_down_features_1.png" loading="lazy" alt="" className="image_features" />
                   </div>
-                  <div className="slide-2 w-slide">
-                    <div className="w-layout-grid grid-5">
-                      <div className="div-block-19">
-                        <img src="src/images/whos_down_features_2.png"
-                          loading="lazy"
-                          alt=""
-                          className="image_features"
-                        />
-                      </div>
-                      <div className="div-block-8">
-                        <img src="src/images/whos_down_features_icon_flag.svg" loading="lazy" alt="" className="features_icon" />
-                        <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" />
-                        <h4 className="header-4">Effortless event creation</h4>
-                        <p className="paragraph">30 seconds to make and advertise your event. No flyers, no emails, no hassle.</p>
-                      </div>
-                    </div>
+                  <div className="div-block-8">
+                    <img src="src/images/whos_down_features_icon_mag.svg" loading="lazy" alt="" className="features_icon" />
+                    <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" />
+                    <h4 className="header-4">Comprehensive event discovery</h4>
+                    <p className="paragraph">Extensive filtering, searching, and notification options let you find the
+                      events
+                      and people you’re interested in without getting flooded by the rest. With all events from blitz
+                      and
+                      more that aren’t, we make event discovery easy.
+                    </p>
                   </div>
-                  <div className="slide-3 w-slide">
-                    <div className="w-layout-grid grid-5">
-                      <div className="div-block-20">
-                        <img src="src/images/whos_down_features_3.png"
-                          loading="lazy"
-                          alt=""
-                          className="image_features"
-                        />
-                      </div>
-                      <div className="div-block-8">
-                        <img src="src/images/whos_down_features_icon_vir.svg" loading="lazy" alt="" className="features_icon" />
-                        <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" />
-                        <h4 className="header-4">COVID-19 features</h4>
-                        <p className="paragraph">Get close to your class while staying 6 feet apart. With support for virtual
-                          events, hard event capacity limits, and background analytics, we make sure fun, spontaneity, and
-                          friendships aren’t casualties of COVID-19.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="slide-4 w-slide">
-                    <div className="w-layout-grid grid-5">
-                      <div className="div-block-21">
-                        <img src="src/images/whos_down_features_4.png" loading="lazy" alt="" className="image_features" />
-                      </div>
-                      <div className="div-block-8">
-                        <img src="src/images/whos_down_features_icon_chart.svg" loading="lazy" alt="" className="features_icon" />
-                        <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" />
-                        <h4 className="header-4">Event analytics</h4>
-                        <p className="paragraph">Stop the guesswork around who’s interested in your event, how best to reach
-                          them,
-                          what the best time is, blah blah blah. We offer rigorous analytics to help you identify key
-                          demographics, gauge interest beyond just who shows up, and to help your events reach your goals.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {this.renderSliderButtons()}
-
-                  <div className="slide-nav w-slider-nav w-shadow w-round" />
                 </div>
               </div>
+              <div className="slide-2 w-slide">
+                <div className="w-layout-grid grid-5">
+                  <div className="div-block-19">
+                    <img src="src/images/whos_down_features_2.png"
+                      loading="lazy"
+                      alt=""
+                      className="image_features"
+                    />
+                  </div>
+                  <div className="div-block-8">
+                    <img src="src/images/whos_down_features_icon_flag.svg" loading="lazy" alt="" className="features_icon" />
+                    <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" />
+                    <h4 className="header-4">Effortless event creation</h4>
+                    <p className="paragraph">30 seconds to make and advertise your event. No flyers, no emails, no hassle.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="slide-3 w-slide">
+                <div className="w-layout-grid grid-5">
+                  <div className="div-block-20">
+                    <img src="src/images/whos_down_features_3.png"
+                      loading="lazy"
+                      alt=""
+                      className="image_features"
+                    />
+                  </div>
+                  <div className="div-block-8">
+                    <img src="src/images/whos_down_features_icon_vir.svg" loading="lazy" alt="" className="features_icon" />
+                    <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" />
+                    <h4 className="header-4">COVID-19 features</h4>
+                    <p className="paragraph">Get close to your class while staying 6 feet apart. With support for virtual
+                      events, hard event capacity limits, and background analytics, we make sure fun, spontaneity, and
+                      friendships aren’t casualties of COVID-19.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="slide-4 w-slide">
+                <div className="w-layout-grid grid-5">
+                  <div className="div-block-21">
+                    <img src="src/images/whos_down_features_4.png" loading="lazy" alt="" className="image_features" />
+                  </div>
+                  <div className="div-block-8">
+                    <img src="src/images/whos_down_features_icon_chart.svg" loading="lazy" alt="" className="features_icon" />
+                    <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" />
+                    <h4 className="header-4">Event analytics</h4>
+                    <p className="paragraph">Stop the guesswork around who’s interested in your event, how best to reach
+                      them,
+                      what the best time is, blah blah blah. We offer rigorous analytics to help you identify key
+                      demographics, gauge interest beyond just who shows up, and to help your events reach your goals.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="slide-nav w-slider-nav w-shadow w-round" />
             </div>
           </div>
         </div>
       );
-    } else return null;
+    }
   }
 
   render() {
@@ -180,7 +218,7 @@ class Redesign extends Component {
                   <h2 className="heading-2-white">Remember when you really wanted to </h2>
                 </div>
                 <div className="typed-text">
-                  <h2 className="heading-2-white" />
+                  <h2 className="heading-2-white"> {this.renderTypedText()}</h2>
                 </div>
               </div>
               <div className="div_benefits_header2">
