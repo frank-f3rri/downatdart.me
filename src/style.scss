@@ -1427,6 +1427,14 @@ input:checked + .slider:before {
   padding-left: 50%;
 }
 
+.slick-slide {
+  display: block;
+}
+
+.sliderContainer {
+  background-color: skyblue;
+}
+
 .slide-2 {
   padding-right: 400px;
   padding-left: 150px;

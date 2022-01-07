@@ -13,20 +13,14 @@
 import React, { Component } from 'react';
 import '../style.scss';
 import Typed from 'react-typed';
-import Slider from 'react-slick';
 import getWindowDimensions from '../hooks/getWindowDimensions';
+
 
 class Redesign extends Component {
   constructor(props) {
     super(props);
     this.state = { debug: true, debug2: true, slidePosn: 0 };
-    const sliderSettings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    };
+
     const { height, width } = getWindowDimensions();
   }
 
@@ -66,26 +60,14 @@ class Redesign extends Component {
 
   renderSectionFeatures = () => {
     if (this.state.debug) {
+      // currently, 2n+1 slides show up
+
       return (
-        <div className="section_benefits">
+        <div className="sliderContainer">
           <h2> Single Item</h2>
-          <Slider {...this.sliderSettings}>
-            <div className="slick-slide">
-              <img src="http://placekitten.com/g/400/200" width={20000} />
-            </div>
 
-            <div className="slick-slide">
-              <img src="http://placekitten.com/g/400/200" />
-            </div>
 
-            <div className="slick-slide">
-              <img src="http://placekitten.com/g/400/200" />
-            </div>
-
-            <div className="slick-slide">
-              <img src="http://placekitten.com/g/400/200" />
-            </div>
-          </Slider>
+          );
         </div>
       );
     } else {
