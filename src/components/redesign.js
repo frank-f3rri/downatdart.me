@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable max-len */
@@ -13,8 +14,17 @@
 import React, { Component } from 'react';
 import '../style.scss';
 import Typed from 'react-typed';
+import Carousel from '../hooks/Carousel';
 import getWindowDimensions from '../hooks/getWindowDimensions';
 
+
+const contentStyle = {
+  height: '160px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: '#364d79',
+};
 
 class Redesign extends Component {
   constructor(props) {
@@ -58,16 +68,17 @@ class Redesign extends Component {
   //   } else return null;
   // }
 
+  onChange = (a, b, c) => {
+    console.log(a, b, c);
+  }
+
   renderSectionFeatures = () => {
     if (this.state.debug) {
       // currently, 2n+1 slides show up
 
       return (
-        <div className="sliderContainer">
-          <h2> Single Item</h2>
-
-
-          );
+        <div>
+          {/* // <Carousel /> */}
         </div>
       );
     } else {
@@ -182,14 +193,16 @@ class Redesign extends Component {
                     </p>
                     <a href="#DownloadCTA" className="button_cta_red button_hero w-button">Download</a>
                   </div>
-                  <img src="src/images/whos_down_hero_image.png"
-                    loading="lazy"
-                    width="563"
-                    sizes="(max-width: 767px) 250.00001525878906px, (max-width: 991px) 350.0000305175781px, 700.0000610351562px"
-                    srcSet="src/images/whos_down_hero_image-p-500.png 500w, src/images/whos_down_hero_image.png 722w"
-                    alt=""
-                    className="image_hero"
-                  />
+                  <div>
+                    <img src="src/images/whos_down_hero_image.png"
+                      loading="lazy"
+                      width="563"
+                      sizes="(max-width: 767px) 250.00001525878906px, (max-width: 991px) 350.0000305175781px, 700.0000610351562px"
+                      srcSet="src/images/whos_down_hero_image-p-500.png 500w, src/images/whos_down_hero_image.png 722w"
+                      alt=""
+                      className="image_hero"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
