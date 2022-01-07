@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable react/button-has-type */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/jsx-props-no-spreading */
@@ -30,8 +32,21 @@ class Redesign extends Component {
   constructor(props) {
     super(props);
     this.state = { debug: true, debug2: true, slidePosn: 0 };
-
+    this.totalSlides = 3;
     const { height, width } = getWindowDimensions();
+  }
+
+  slidePosnChange = (change) => {
+    console.log(this.state.slidePosn + change);
+    if (this.state.slidePosn + change > this.totalSlides) {
+      this.setState({ slidePosn: 0 });
+    } else if (this.state.slidePosn + change < 0) {
+      this.setState({ slidePosn: this.totalSlides });
+    } else {
+      this.setState((prevState) => ({
+        slidePosn: prevState.slidePosn + change,
+      }));
+    }
   }
 
   renderTypedText = () => {
@@ -39,7 +54,7 @@ class Redesign extends Component {
       <div>
         <Typed
           strings={[
-            'go rock climbing,', 'go fishing,', 'play chess,', 'go hiking,']}
+            'go climbing,', 'go fishing,', 'play chess,', 'go hiking,']}
           typeSpeed={75}
           backSpeed={50}
           loop
@@ -68,17 +83,15 @@ class Redesign extends Component {
   //   } else return null;
   // }
 
-  onChange = (a, b, c) => {
-    console.log(a, b, c);
-  }
 
   renderSectionFeatures = () => {
-    if (this.state.debug) {
+    if (!this.state.debug) {
       // currently, 2n+1 slides show up
 
       return (
         <div>
           {/* // <Carousel /> */}
+          <p> hi</p>
         </div>
       );
     } else {
@@ -88,13 +101,18 @@ class Redesign extends Component {
             <div className="div-block-9">
               <h2 className="heading-2">Finally, an app that offers:</h2>
               <div className="slider-left">
-                <img src="src/images/icon_slider.arrow.left.svg" loading="lazy" alt="" />
+                <button onClick={() => { this.slidePosnChange(-1); }}>
+                  <img src="src/images/icon_slider.arrow.left.svg" loading="lazy" alt="" />
+                </button>
               </div>
 
               <div className="slider-right">
-                <img src="src/images/icon_slider.arrow.right.svg" loading="lazy" alt="" onClick={() => { console.log('hi'); }} />
+                <button onClick={() => { this.slidePosnChange(1); }}>
+                  <img src="src/images/icon_slider.arrow.right.svg" loading="lazy" alt="" onClick={() => { console.log('hi'); }} />
+                </button>
               </div>
 
+              {this.state.slidePosn === 0 && (
               <div className="slide w-slide">
                 <div className="w-layout-grid grid-5">
                   <div className="div-block-18">
@@ -113,6 +131,9 @@ class Redesign extends Component {
                   </div>
                 </div>
               </div>
+              )}
+
+              {this.state.slidePosn === 1 && (
               <div className="slide-2 w-slide">
                 <div className="w-layout-grid grid-5">
                   <div className="div-block-19">
@@ -130,6 +151,10 @@ class Redesign extends Component {
                   </div>
                 </div>
               </div>
+              )}
+
+              {this.state.slidePosn === 2 && (
+
               <div className="slide-3 w-slide">
                 <div className="w-layout-grid grid-5">
                   <div className="div-block-20">
@@ -150,6 +175,10 @@ class Redesign extends Component {
                   </div>
                 </div>
               </div>
+              )}
+
+              {this.state.slidePosn === 3 && (
+
               <div className="slide-4 w-slide">
                 <div className="w-layout-grid grid-5">
                   <div className="div-block-21">
@@ -167,6 +196,7 @@ class Redesign extends Component {
                   </div>
                 </div>
               </div>
+              )}
               <div className="slide-nav w-slider-nav w-shadow w-round" />
             </div>
           </div>
@@ -210,7 +240,7 @@ class Redesign extends Component {
             <div className="section_benefits">
               <div className="div-block-4">
                 <div className="div_benefits_header">
-                  <h2 className="heading-2-white">Remember when you really wanted to </h2>
+                  <h2 className="heading-2-white">Remember when you wanted to </h2>
                 </div>
                 <div className="typed-text">
                   <h2 className="heading-2-white"> {this.renderTypedText()}</h2>
