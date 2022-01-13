@@ -37,16 +37,12 @@ class Redesign extends Component {
   }
 
   slidePosnChange = (change) => {
-    console.log(this.state.slidePosn + change);
-    if (this.state.slidePosn + change > this.totalSlides) {
-      this.setState({ slidePosn: 0 });
-    } else if (this.state.slidePosn + change < 0) {
-      this.setState({ slidePosn: this.totalSlides });
-    } else {
-      this.setState((prevState) => ({
-        slidePosn: prevState.slidePosn + change,
-      }));
-    }
+    this.setState((prevState) => {
+      console.log('nc', prevState);
+      return {
+        slidePosn: (prevState.slidePosn + change) % (this.totalSlides + 1),
+      };
+    });
   }
 
   renderTypedText = () => {
@@ -113,7 +109,7 @@ class Redesign extends Component {
               </div>
 
               {this.state.slidePosn === 0 && (
-              <div className="slide w-slide">
+              <div className="slide-1 w-slide">
                 <div className="w-layout-grid grid-5">
                   <div className="div-block-18">
                     <img src="src/images/whos_down_features_1.png" loading="lazy" alt="" className="image_features" />
@@ -178,7 +174,6 @@ class Redesign extends Component {
               )}
 
               {this.state.slidePosn === 3 && (
-
               <div className="slide-4 w-slide">
                 <div className="w-layout-grid grid-5">
                   <div className="div-block-21">
