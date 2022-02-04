@@ -11,9 +11,9 @@ class Nav extends Component {
   render() {
     return (
       <div className="container">
-        <nav>
+        <nav className="navNav">
           <ul className="navBar">
-            <li>
+            <li className="firstNavBarList">
               <NavLink to="/">
                 <a href="index.html" aria-current="page" className="brand w-nav-brand w--current"><img
                   src="src/images/whos_down_logo_main.svg"
@@ -24,11 +24,15 @@ class Nav extends Component {
                 </a>
               </NavLink>
             </li>
-            <li><NavLink className="navItem" exact to="/"> Home </NavLink></li>
-            <li><NavLink className="navItem" to="/map"> Explore </NavLink></li>
-            <li><NavLink className="navItem" to="/about"> About </NavLink></li>
-            <li><NavHashLink className="navItemDownload" smooth to="/#download"> Download </NavHashLink></li>
-            <li><a className="donateItem" href="https://www.buymeacoffee.com/whosdown1"><span> Donate! </span> </a></li>
+            <li className="secondNavBarList">
+              <ul>
+                <li><NavLink className="navItem" exact to="/"> Home </NavLink></li>
+                <li><NavLink className="navItem" to="/map"> Explore </NavLink></li>
+                <li><NavLink className="navItem" to="/about"> About </NavLink></li>
+                <li><NavHashLink className="navItemDownload" smooth to="/#download"> Download </NavHashLink></li>
+                <li><a className="donateItem" href="https://www.buymeacoffee.com/whosdown1"><span> Donate! </span> </a></li>
+              </ul>
+            </li>
           </ul>
         </nav>
       </div>

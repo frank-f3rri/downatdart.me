@@ -28,6 +28,10 @@ const contentStyle = {
   background: '#364d79',
 };
 
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
+
 class Redesign extends Component {
   constructor(props) {
     super(props);
@@ -38,9 +42,10 @@ class Redesign extends Component {
 
   slidePosnChange = (change) => {
     this.setState((prevState) => {
-      console.log('nc', prevState);
+      const slidePosn = mod(prevState.slidePosn + change, this.totalSlides + 1);
+      console.log('old', prevState.slidePosn, 'new', slidePosn);
       return {
-        slidePosn: (prevState.slidePosn + change) % (this.totalSlides + 1),
+        slidePosn,
       };
     });
   }
@@ -50,7 +55,7 @@ class Redesign extends Component {
       <div>
         <Typed
           strings={[
-            'go climbing,', 'go fishing,', 'play chess,', 'go hiking,']}
+            ' go climbing,', ' go fishing,', ' go roller-blading,', ' go hiking,', ' go on a 3am ~adventure~,', 'go ice skating,']}
           typeSpeed={75}
           backSpeed={50}
           loop
@@ -200,340 +205,380 @@ class Redesign extends Component {
     }
   }
 
-  render() {
+  renderHero = () => {
     return (
-      <div className="onTopOfTransform">
-        <div style={{ /* transform: 'scale(80%)' */}}>
-          {/* transform: 'scale(90%)' */}
-          <div className="pagewrapper">
-            <div className="section_hero">
-              <div>
-                <div className="w-layout-grid grid">
-                  <div className="div-block-7">
-                    <div className="div-block-16">
-                      <h1 className="header-1">Spontaneity organized<span style={{ color: '#d7263d' }}>.</span></h1>
-                    </div>
-                    <p className="paragraph paragraph_hero">Who’s Down is the one stop shop to see what’s up and who’s down for
-                      events near you. Discover, create, and stay up-to-date on the events that matter to you.
-                    </p>
-                    <a href="#DownloadCTA" className="button_cta_red button_hero w-button">Download</a>
-                  </div>
-                  <div>
-                    <img src="src/images/whos_down_hero_image.png"
-                      loading="lazy"
-                      width="563"
-                      sizes="(max-width: 767px) 250.00001525878906px, (max-width: 991px) 350.0000305175781px, 700.0000610351562px"
-                      srcSet="src/images/whos_down_hero_image-p-500.png 500w, src/images/whos_down_hero_image.png 722w"
-                      alt=""
-                      className="image_hero"
-                    />
-                  </div>
-                </div>
-              </div>
+      <div>
+        <div className="w-layout-grid grid">
+          <div className="div-block-7">
+            <div className="div-block-16">
+              <h1 className="header-1">Spontaneity organized<span style={{ color: '#d7263d' }}>.</span></h1>
             </div>
-            <div className="diagonal_1" />
-            <div className="section_benefits">
-              <div className="div-block-4">
-                <div className="div_benefits_header">
-                  <h2 className="heading-2-white">Remember when you wanted to </h2>
-                </div>
-                <div className="typed-text">
-                  <h2 className="heading-2-white"> {this.renderTypedText()}</h2>
-                </div>
-              </div>
-              <div className="div_benefits_header2">
-                <h2 className="heading-2-white">but none of your friends were free?</h2>
-              </div>
-              <div className="div_benefits_paragraph">
-                <p className="paragraph-white">Life is too short for regrets. Who’s Down helps you make those memories.</p>
-              </div>
-              <div className="div-block-5">
-                <div className="w-layout-grid grid-2">
-                  <div id="w-node-982fe9d01475-873e4a51" className="card_benefits">
-                    <img src="src/images/icon_phone.svg" loading="lazy" alt="" className="card_benefits_icon" />
-                    <img src="src/images/circle_red.png"
-                      loading="lazy"
-                      width="528"
-                      sizes="(max-width: 479px) 100vw, 528px"
-                      srcSet="src/images/circle_red-p-500.png 500w, src/images/circle_red.png 696w"
-                      alt=""
-                      className="circle_red"
-                    />
-                    <h4 className="heading-4-white">Democratizing event planning</h4>
-                    <p className="card_benefits_paragraph">Tap into the informal event economy to see everything going on, from the
-                      events that aren’t making it onto blitz to all the events that are. Also, create events beyond the
-                      groupchat—reach both friends present and future.
-                    </p>
-                  </div>
-                  <div id="w-node-2ef93d14fd51-873e4a51" className="card_benefits">
-                    <img src="src/images/icon_hands.svg" loading="lazy" alt="" className="card_benefits_icon" />
-                    <img src="src/images/circle_red.png"
-                      loading="lazy"
-                      width="529"
-                      sizes="(max-width: 479px) 100vw, 529px"
-                      srcSet="src/images/circle_red-p-500.png 500w, src/images/circle_red.png 696w"
-                      alt=""
-                      className="circle_red"
-                    />
-                    <h4 className="heading-4-white">Meeting people commitment-free</h4>
-                    <p className="card_benefits_paragraph">No club meetings, no membership requirements, no bureaucratic hassle.
-                      With no expectation of commitment, you spend your free time and only your free time— not a second more.
-                    </p>
-                  </div>
-                  <div id="w-node-efc9f89298ae-873e4a51" className="card_benefits">
-                    <img src="src/images/icon_clock.svg" loading="lazy" alt="" className="card_benefits_icon" />
-                    <img src="src/images/circle_red.png"
-                      loading="lazy"
-                      width="530"
-                      sizes="(max-width: 479px) 100vw, 530px"
-                      srcSet="src/images/circle_red-p-500.png 500w, src/images/circle_red.png 696w"
-                      alt=""
-                      className="circle_red"
-                    />
-                    <h4 className="heading-4-white">Reclaiming <br />your time</h4>
-                    <p className="card_benefits_paragraph">Spend your time the way you really want to spend it rather than by doing
-                      whatever’s available. Spelunking, fishing, busking, whatever your interest, see who’s down and getgoing—
-                      what are you waiting for?
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-            <div className="diagonal_2" />
-            <div className="diagonal_blue_1" />
-
-            {this.renderSectionFeatures()}
-
-            <div id="DownloadCTA" className="diagonal_3" />
-            <div className="section_cta">
-              <div className="div-block-6">
-                <h1 className="header-1-white">Are you down?</h1>
-                <p className="paragraph-white">See what’s happening on campus, find your people, and have your voice heard. Who’s
-                  Down is here to redefine the way students engage with each other and their campus, with fewer extraneous
-                  notifications, more inclusivity, and more fun.
-                </p>
-                <a href="https://apps.apple.com/us/app/id1527341310" target="_blank" className="button_cta_white w-button">App Store
-                  Download
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.downatdart.app&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
-                  target="_blank"
-                  className="button_cta_white w-button"
-                >Google Play Download
-                </a>
-              </div>
-            </div>
-            <div className="diagonal_4" />
-            <div className="diagonal_blue_1" />
-            <div className="section_testimonials">
-              <div className="div-block-10">
-                <h2 className="heading-2">Down for Who’s Down</h2>
-                <p className="paragraph paragraph_center">Students love how easy Who’s Down makes it to have a social life, even
-                  during a pandemic. Don’t take it from us, see what our users have to say!
-                </p>
-                <div className="w-layout-grid grid-3">
-                  <div id="w-node-8ba272a3a2b1-873e4a51" className="card_testimonial">
-                    <img src="src/images/testimonial_face_4-2.png" loading="lazy" alt="" className="card_testimonial_image" />
-                    <img src="src/images/circle_white.png" loading="lazy" alt="" className="circle_blue" />
-                    <h4 className="heading_testimonial">Jennifer R.</h4>
-                    <p className="paragraph_testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam ac massa.
-                      Pellentesque quis justo faucibus.
-                    </p>
-                  </div>
-                  <div className="card_testimonial">
-                    <img src="src/images/testimonial_face_5-2.png"
-                      loading="lazy"
-                      width="60"
-                      alt=""
-                      className="card_testimonial_image"
-                    /><img src="src/images/circle_blue.png"
-                      loading="lazy"
-                      width="655"
-                      alt=""
-                      className="circle_blue"
-                    />
-                    <h4 className="heading_testimonial">Mike P.</h4>
-                    <p className="paragraph_testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam ac massa.
-                      Pellentesque quis justo faucibus.
-                    </p>
-                  </div>
-                  <div className="card_testimonial">
-                    <img src="src/images/testimonial_face_1-2.png"
-                      loading="lazy"
-                      width="60"
-                      alt=""
-                      className="card_testimonial_image"
-                    />
-                    <img src="src/images/circle_white.png"
-                      loading="lazy"
-                      width="655"
-                      alt=""
-                      className="circle_blue"
-                    />
-                    <h4 className="heading_testimonial">Megan T.</h4>
-                    <p className="paragraph_testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam ac massa.
-                      Pellentesque quis justo faucibus.
-                    </p>
-                  </div>
-                  <div className="card_testimonial">
-                    <img src="src/images/testimonial_face_3-2.png"
-                      loading="lazy"
-                      width="60"
-                      alt=""
-                      className="card_testimonial_image"
-                    />
-                    <img src="src/images/circle_blue.png"
-                      loading="lazy"
-                      width="655"
-                      alt=""
-                      className="circle_blue"
-                    />
-                    <h4 className="heading_testimonial">Dan R.</h4>
-                    <p className="paragraph_testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam ac massa.
-                      Pellentesque quis justo faucibus.
-                    </p>
-                  </div>
-                  <div className="card_testimonial">
-                    <img src="src/images/testimonial_face_2-2.png"
-                      loading="lazy"
-                      width="60"
-                      alt=""
-                      className="card_testimonial_image"
-                    />
-                    <img src="src/images/circle_white.png"
-                      loading="lazy"
-                      width="655"
-                      alt=""
-                      className="circle_blue"
-                    />
-                    <h4 className="heading_testimonial">Stacey B.</h4>
-                    <p className="paragraph_testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam ac massa.
-                      Pellentesque quis justo faucibus.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* End Testimonials Section */}
-            <div className="section_listserv">
-              <div>
-                <div className="w-layout-grid grid-4">
-                  <div className="div-block-22">
-                    <img src="src/images/whos_down_listserv.png"
-                      loading="lazy"
-                      width="750"
-                      height="400"
-                      sizes="(max-width: 479px) 55vw, (max-width: 1919px) 72vw, 810.0000610351562px"
-                      srcSet="src/images/whos_down_listserv-p-500.png 500w, src/images/whos_down_listserv-p-800.png 800w, images/whos_down_listserv.png 1009w"
-                      alt=""
-                      className="image_listserv"
-                    />
-                  </div>
-                  <div className="div-block-11">
-                    <h2 className="heading-2 heading_listserv">You in?</h2>
-                    <p className="paragraph paragraph_listserv">Get custom event recs based on your interests, be the first to hear
-                      about new features, and instantly earn the Who’s Down team’s love forever...🥺👉👈
-                    </p>
-                    <div className="form-block w-form">
-                      <form id="email-form" name="email-form" data-name="Email Form">
-                        <label htmlFor="name" className="field-label">First
-                          Name
-                        </label>
-                        <input type="text" className="w-input" maxLength="256" name="name" data-name="Name" placeholder="Enter Your First Name" id="name" required="" />
-                        <label htmlFor="email" className="field-label-2">Email</label>
-                        <input type="email" className="w-input" maxLength="256" name="email" data-name="Email" placeholder="Enter Your Email" id="email" required="" />
-                        <input type="submit" value="Join the Who&#x27;s Down Listserv!" data-wait="Please wait..." className="button_cta_red w-button" />
-                      </form>
-                      <div className="w-form-done">
-                        <div>Thank you! Your submission has been received!</div>
-                      </div>
-                      <div className="w-form-fail">
-                        <div>Oops! Something went wrong while submitting the form.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="section_footer">
-              <div className="div-block-15">
-                <div className="div_footer_logo">
-                  <a href="#Top" className="w-inline-block"><img src="src/images/whos_down_logo_white.svg"
-                    loading="lazy"
-                    alt=""
-                  />
-                  </a>
-                </div>
-                <div className="div_footer_nav">
-                  <a href="index.html" aria-current="page" className="footer_link w--current">Home</a>
-                  <a href="about.html" className="footer_link">About</a>
-                  <a href="#" className="footer_link">Legal</a>
-                </div>
-              </div>
-              <div id="Downloads" className="div-block-13">
-                <div className="div_footer_buttons">
-                  <a href="https://apps.apple.com/us/app/id1527341310"
-                    target="_blank"
-                    className="button_cta_red button_footer w-button"
-                  >App Store Download
-                  </a>
-                  <a href="https://play.google.com/store/apps/details?id=com.downatdart.app&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
-                    target="_blank"
-                    className="button_cta_red button_footer w-button"
-                  >Google Play Download
-                  </a>
-                </div>
-                <div>
-                  <p className="paragraph_social">Who&#x27;s Down Social</p>
-                  <div className="div_footer_social">
-                    <a href="#" className="w-inline-block"><img src="src/images/icon_social_linkedin.svg"
-                      loading="lazy"
-                      alt=""
-                      className="social_icons"
-                    />
-                    </a>
-                    <a href="#" className="w-inline-block"><img src="src/images/icon_social_instagram.svg"
-                      loading="lazy"
-                      alt=""
-                      className="social_icons"
-                    />
-                    </a>
-                    <a href="#" className="w-inline-block"><img src="src/images/icon_social_facebook.svg"
-                      loading="lazy"
-                      alt=""
-                      className="social_icons"
-                    />
-                    </a>
-                    <a href="#" className="w-inline-block"><img src="src/images/icon_social_twitter.svg"
-                      loading="lazy"
-                      alt=""
-                      className="social_icons"
-                    />
-                    </a>
-                  </div>
-                </div>
-
-              </div>
-              <div className="div_footer_copywrite">
-                <p className="paragraph-5">© Who&#x27;s Down 2020. All rights reserved.</p>
-                <a href="mailto:hello.kamalmunshi@gmail.com" className="footer_link footer_link_designedby">Website Designed by
-                  Kamal Munshi
-                </a>
-              </div>
-            </div>
+            <p className="paragraph paragraph_hero">Who’s Down is the one stop shop to see what’s up and who’s down for
+              events near you. Discover, create, and stay up-to-date on the events that matter to you.
+            </p>
+            <a href="#DownloadCTA" className="button_cta_red button_hero w-button">Download</a>
+          </div>
+          <div className="div-block-hero-img">
+            <img src="src/images/whos_down_hero_image.png"
+              loading="lazy"
+              width="563"
+              sizes="(max-width: 767px) 250.00001525878906px, (max-width: 991px) 350.0000305175781px, 700.0000610351562px"
+              srcSet="src/images/whos_down_hero_image-p-500.png 500w, src/images/whos_down_hero_image.png 722w"
+              alt=""
+              className="image_hero"
+            />
           </div>
         </div>
-        <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5feaa137162fb584dd3e4a50"
-          type="text/javascript"
-          integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-          crossOrigin="anonymous"
-        />
-        <script src="webflow.js" type="text/javascript" />
-        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9" />
-        <script src="../hooks/useCustomScript" />
       </div>
     );
   }
+
+  renderBenefits = () => {
+    return (
+      <>
+        <div className="div-block-4">
+          <div className="div_benefits_header">
+            <h2 className="heading-2-white">Remember when you wanted to </h2>
+          </div>
+          <div className="typed-text">
+            <h2 className="heading-2-white"> {this.renderTypedText()}</h2>
+          </div>
+        </div>
+        <div className="div_benefits_header2">
+          <h2 className="heading-2-white">but none of your friends were free?</h2>
+        </div>
+        <div className="div_benefits_paragraph">
+          <p className="paragraph-white">Life is too short for regrets. Who’s Down helps you make those memories.</p>
+        </div>
+        <div className="div-block-5">
+          <div className="w-layout-grid grid-2">
+            <div id="w-node-982fe9d01475-873e4a51" className="card_benefits">
+              <img src="src/images/icon_phone.svg" loading="lazy" alt="" className="card_benefits_icon" />
+              <img src="src/images/circle_red.png"
+                loading="lazy"
+                width="528"
+                sizes="(max-width: 479px) 100vw, 528px"
+                srcSet="src/images/circle_red-p-500.png 500w, src/images/circle_red.png 696w"
+                alt=""
+                className="circle_red"
+              />
+              <h4 className="heading-4-white">Democratizing event planning</h4>
+              <p className="card_benefits_paragraph">Tap into the informal event economy to see everything going on, from the
+                events that aren’t making it onto blitz to all the events that are. Also, create events beyond the
+                groupchat—reach both friends present and future.
+              </p>
+            </div>
+            <div id="w-node-2ef93d14fd51-873e4a51" className="card_benefits">
+              <img src="src/images/icon_hands.svg" loading="lazy" alt="" className="card_benefits_icon" />
+              <img src="src/images/circle_red.png"
+                loading="lazy"
+                width="529"
+                sizes="(max-width: 479px) 100vw, 529px"
+                srcSet="src/images/circle_red-p-500.png 500w, src/images/circle_red.png 696w"
+                alt=""
+                className="circle_red"
+              />
+              <h4 className="heading-4-white">Meeting people commitment-free</h4>
+              <p className="card_benefits_paragraph">No club meetings, no membership requirements, no bureaucratic hassle.
+                With no expectation of commitment, you spend your free time and only your free time— not a second more.
+              </p>
+            </div>
+            <div id="w-node-efc9f89298ae-873e4a51" className="card_benefits">
+              <img src="src/images/icon_clock.svg" loading="lazy" alt="" className="card_benefits_icon" />
+              <img src="src/images/circle_red.png"
+                loading="lazy"
+                width="530"
+                sizes="(max-width: 479px) 100vw, 530px"
+                srcSet="src/images/circle_red-p-500.png 500w, src/images/circle_red.png 696w"
+                alt=""
+                className="circle_red"
+              />
+              <h4 className="heading-4-white">Reclaiming <br />your time</h4>
+              <p className="card_benefits_paragraph">Spend your time the way you really want to spend it rather than by doing
+                whatever’s available. Spelunking, fishing, busking, whatever your interest, see who’s down and getgoing—
+                what are you waiting for?
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </>
+    );
+  }
+
+  renderTestimonials = () => {
+    return (
+      <div className="div-block-10">
+        <h2 className="heading-2">Down for Who’s Down</h2>
+        <p className="paragraph paragraph_center">Students love how easy Who’s Down makes it to have a social life, even
+          during a pandemic. Don’t take it from us, see what our users have to say!
+        </p>
+        <div className="w-layout-grid grid-3">
+          <div id="w-node-8ba272a3a2b1-873e4a51" className="card_testimonial">
+            <img src="src/images/testimonial_face_4-2.png" loading="lazy" alt="" className="card_testimonial_image" />
+            <img src="src/images/circle_white.png" loading="lazy" alt="" className="circle_blue" />
+            <h4 className="heading_testimonial">Jennifer R.</h4>
+            <p className="paragraph_testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam ac massa.
+              Pellentesque quis justo faucibus.
+            </p>
+          </div>
+          <div className="card_testimonial">
+            <img src="src/images/testimonial_face_5-2.png"
+              loading="lazy"
+              width="60"
+              alt=""
+              className="card_testimonial_image"
+            /><img src="src/images/circle_blue.png"
+              loading="lazy"
+              width="655"
+              alt=""
+              className="circle_blue"
+            />
+            <h4 className="heading_testimonial">Mike P.</h4>
+            <p className="paragraph_testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam ac massa.
+              Pellentesque quis justo faucibus.
+            </p>
+          </div>
+          <div className="card_testimonial">
+            <img src="src/images/testimonial_face_1-2.png"
+              loading="lazy"
+              width="60"
+              alt=""
+              className="card_testimonial_image"
+            />
+            <img src="src/images/circle_white.png"
+              loading="lazy"
+              width="655"
+              alt=""
+              className="circle_blue"
+            />
+            <h4 className="heading_testimonial">Megan T.</h4>
+            <p className="paragraph_testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam ac massa.
+              Pellentesque quis justo faucibus.
+            </p>
+          </div>
+          <div className="card_testimonial">
+            <img src="src/images/testimonial_face_3-2.png"
+              loading="lazy"
+              width="60"
+              alt=""
+              className="card_testimonial_image"
+            />
+            <img src="src/images/circle_blue.png"
+              loading="lazy"
+              width="655"
+              alt=""
+              className="circle_blue"
+            />
+            <h4 className="heading_testimonial">Dan R.</h4>
+            <p className="paragraph_testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam ac massa.
+              Pellentesque quis justo faucibus.
+            </p>
+          </div>
+          <div className="card_testimonial">
+            <img src="src/images/testimonial_face_2-2.png"
+              loading="lazy"
+              width="60"
+              alt=""
+              className="card_testimonial_image"
+            />
+            <img src="src/images/circle_white.png"
+              loading="lazy"
+              width="655"
+              alt=""
+              className="circle_blue"
+            />
+            <h4 className="heading_testimonial">Stacey B.</h4>
+            <p className="paragraph_testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam ac massa.
+              Pellentesque quis justo faucibus.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  renderCTA = () => {
+    return (
+      <div className="section_cta">
+        <div className="div-block-6">
+          <h1 className="header-1-white">Are you down?</h1>
+          <p className="paragraph-white">See what’s happening on campus, find your people, and have your voice heard. Who’s
+            Down is here to redefine the way students engage with each other and their campus, with fewer extraneous
+            notifications, more inclusivity, and more fun.
+          </p>
+          <a href="https://apps.apple.com/us/app/id1527341310" target="_blank" className="button_cta_white w-button">App Store
+            Download
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.downatdart.app&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
+            target="_blank"
+            className="button_cta_white w-button"
+          >Google Play Download
+          </a>
+        </div>
+      </div>
+    );
+  }
+
+renderEmailList = () => {
+  return (
+    <div>
+      <div className="w-layout-grid grid-4">
+        <div className="div-block-22">
+          <img src="src/images/whos_down_listserv.png"
+            loading="lazy"
+            width="750"
+            height="400"
+            sizes="(max-width: 479px) 55vw, (max-width: 1919px) 72vw, 810.0000610351562px"
+            srcSet="src/images/whos_down_listserv-p-500.png 500w, src/images/whos_down_listserv-p-800.png 800w, images/whos_down_listserv.png 1009w"
+            alt=""
+            className="image_listserv"
+          />
+        </div>
+        <div className="div-block-11">
+          <h2 className="heading-2 heading_listserv">You in?</h2>
+          <p className="paragraph paragraph_listserv">Get custom event recs based on your interests, be the first to hear
+            about new features, and instantly earn the Who’s Down team’s love forever...🥺👉👈
+          </p>
+          <div className="form-block w-form">
+            <form id="email-form" name="email-form" data-name="Email Form">
+              <label htmlFor="name" className="field-label">First
+                Name
+              </label>
+              <input type="text" className="w-input" maxLength="256" name="name" data-name="Name" placeholder="Enter Your First Name" id="name" required="" />
+              <label htmlFor="email" className="field-label-2">Email</label>
+              <input type="email" className="w-input" maxLength="256" name="email" data-name="Email" placeholder="Enter Your Email" id="email" required="" />
+              <input type="submit" value="Join the Who&#x27;s Down Listserv!" data-wait="Please wait..." className="button_cta_red w-button" />
+            </form>
+            <div className="w-form-done">
+              <div>Thank you! Your submission has been received!</div>
+            </div>
+            <div className="w-form-fail">
+              <div>Oops! Something went wrong while submitting the form.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+renderFooter = () => {
+
+}
+
+render() {
+  return (
+    <div className="onTopOfTransform">
+      <div style={{ /* transform: 'scale(80%)' */}}>
+        {/* transform: 'scale(90%)' */}
+        <div className="pagewrapper">
+          <div className="section_hero">
+            {this.renderHero()}
+          </div>
+          <div className="diagonal_1" />
+          <div className="section_benefits">
+            {this.renderBenefits()}
+          </div>
+          <div className="diagonal_2" />
+          <div className="diagonal_blue_1" />
+
+          {this.renderSectionFeatures()}
+
+          <div id="DownloadCTA" className="diagonal_3" />
+          {this.renderCTA()}
+
+          <div className="diagonal_4" />
+          <div className="diagonal_blue_1" />
+
+          <div className="section_testimonials">
+            {this.renderTestimonials()}
+          </div>
+
+          <div className="section_listserv">
+            {this.renderEmailList()}
+          </div>
+
+          <div className="section_footer">
+            {this.renderFooter()}
+            <div className="div-block-15">
+              <div className="div_footer_logo">
+                <a href="#Top" className="w-inline-block"><img src="src/images/whos_down_logo_white.svg"
+                  loading="lazy"
+                  alt=""
+                />
+                </a>
+              </div>
+              <div className="div_footer_nav">
+                <a href="index.html" aria-current="page" className="footer_link w--current">Home</a>
+                <a href="about.html" className="footer_link">About</a>
+                <a href="#" className="footer_link">Legal</a>
+              </div>
+            </div>
+            <div id="Downloads" className="div-block-13">
+              <div className="div_footer_buttons">
+                <a href="https://apps.apple.com/us/app/id1527341310"
+                  target="_blank"
+                  className="button_cta_red button_footer w-button"
+                >App Store Download
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.downatdart.app&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
+                  target="_blank"
+                  className="button_cta_red button_footer w-button"
+                >Google Play Download
+                </a>
+              </div>
+              <div>
+                <p className="paragraph_social">Who&#x27;s Down Social</p>
+                <div className="div_footer_social">
+                  <a href="#" className="w-inline-block"><img src="src/images/icon_social_linkedin.svg"
+                    loading="lazy"
+                    alt=""
+                    className="social_icons"
+                  />
+                  </a>
+                  <a href="#" className="w-inline-block"><img src="src/images/icon_social_instagram.svg"
+                    loading="lazy"
+                    alt=""
+                    className="social_icons"
+                  />
+                  </a>
+                  <a href="#" className="w-inline-block"><img src="src/images/icon_social_facebook.svg"
+                    loading="lazy"
+                    alt=""
+                    className="social_icons"
+                  />
+                  </a>
+                  <a href="#" className="w-inline-block"><img src="src/images/icon_social_twitter.svg"
+                    loading="lazy"
+                    alt=""
+                    className="social_icons"
+                  />
+                  </a>
+                </div>
+              </div>
+
+            </div>
+            <div className="div_footer_copywrite">
+              <p className="paragraph-5">© Who&#x27;s Down 2020. All rights reserved.</p>
+              <a href="mailto:hello.kamalmunshi@gmail.com" className="footer_link footer_link_designedby">Website Designed by
+                Kamal Munshi
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5feaa137162fb584dd3e4a50"
+        type="text/javascript"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossOrigin="anonymous"
+      />
+      <script src="webflow.js" type="text/javascript" />
+      <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9" />
+      <script src="../hooks/useCustomScript" />
+    </div>
+  );
+}
 }
 
 export default Redesign;
