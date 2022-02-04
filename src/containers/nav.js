@@ -30,7 +30,7 @@ class Nav extends Component {
                 <li><NavLink className="navItem" to="/map"> Explore </NavLink></li>
                 <li><NavLink className="navItem" to="/about"> About </NavLink></li>
                 <li><NavHashLink className="navItemDownload" smooth to="/#download"> Download </NavHashLink></li>
-                <li><a className="donateItem" href="https://www.buymeacoffee.com/whosdown1"><span> Donate! </span> </a></li>
+                <li className="donateLi"><a className="donateItem" href="https://www.buymeacoffee.com/whosdown1"><span> Donate! </span> </a></li>
               </ul>
             </li>
           </ul>
