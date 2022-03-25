@@ -315,8 +315,10 @@ class Redesign extends Component {
         </p>
         <div className="w-layout-grid grid-3">
           <div id="w-node-8ba272a3a2b1-873e4a51" className="card_testimonial">
+            {/* <div className="just_images"> */}
             <img src="src/images/testimonial_face_4-2.png" loading="lazy" alt="" className="card_testimonial_image" />
             <img src="src/images/circle_white.png" loading="lazy" alt="" className="circle_blue" />
+            {/* </div> */}
             <h4 className="heading_testimonial">Jennifer R.</h4>
             <p className="paragraph_testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam ac massa.
               Pellentesque quis justo faucibus.

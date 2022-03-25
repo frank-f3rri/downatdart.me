@@ -1601,6 +1601,10 @@ img.social_icons {
   grid-template-rows: auto;
 }
 
+.just_images {
+  position: relative;
+}
+
 .grid-4 {
   -ms-grid-rows: auto;
   grid-template-rows: auto;
@@ -1752,9 +1756,13 @@ img.social_icons {
 
 .card_testimonial {
   position: static;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
   max-width: 500px;
   min-width: 200px;
+  min-height: 400px;
   padding: 25px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
   -webkit-perspective: 0px;
@@ -1841,7 +1849,9 @@ img.social_icons {
 }
 
 .card_testimonial_image {
-  position: relative;
+  position: absolute;
+  top: 30%;
+  left: 30%;
   width: 120px;
   min-width: 0px;
   border-radius: 0px;
@@ -2052,11 +2062,10 @@ img.social_icons {
 }
 
 .circle_blue {
-  position: relative;
-  margin-left: -208px;
-  margin-top: -220px;
+  position: absolute; 
+  top: 10%;
+  left: -36%;
   max-width: 425%;
-  width: 379%;
 }
 
 .image_hero {
