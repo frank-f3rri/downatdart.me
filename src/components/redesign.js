@@ -120,8 +120,8 @@ class Redesign extends Component {
                     <img src="src/images/whos_down_features_1.png" loading="lazy" alt="" className="image_features" />
                   </div>
                   <div className="div-block-8">
-                    <img src="src/images/whos_down_features_icon_mag.svg" loading="lazy" alt="" className="features_icon" />
-                    <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" />
+                    <img src="src/images/overlayed_circle_black_mag.png" loading="lazy" alt="" className="features_icon" />
+                    {/* <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" /> */}
                     <h4 className="header-4">Comprehensive event discovery</h4>
                     <p className="paragraph">Extensive filtering, searching, and notification options let you find the
                       events
@@ -145,8 +145,8 @@ class Redesign extends Component {
                     />
                   </div>
                   <div className="div-block-8">
-                    <img src="src/images/whos_down_features_icon_flag.svg" loading="lazy" alt="" className="features_icon" />
-                    <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" />
+                    <img src="src/images/overlayed_circle_black_flag.png" loading="lazy" alt="" className="features_icon" />
+                    {/* <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" /> */}
                     <h4 className="header-4">Effortless event creation</h4>
                     <p className="paragraph">30 seconds to make and advertise your event. No flyers, no emails, no hassle.</p>
                   </div>
@@ -166,8 +166,8 @@ class Redesign extends Component {
                     />
                   </div>
                   <div className="div-block-8">
-                    <img src="src/images/whos_down_features_icon_vir.svg" loading="lazy" alt="" className="features_icon" />
-                    <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" />
+                    <img src="src/images/overlayed_circle_black_vir.png" loading="lazy" alt="" className="features_icon" />
+                    {/* <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" /> */}
                     <h4 className="header-4">COVID-19 features</h4>
                     <p className="paragraph">Get close to your class while staying 6 feet apart. With support for virtual
                       events, hard event capacity limits, and background analytics, we make sure fun, spontaneity, and
@@ -185,8 +185,8 @@ class Redesign extends Component {
                     <img src="src/images/whos_down_features_4.png" loading="lazy" alt="" className="image_features" />
                   </div>
                   <div className="div-block-8">
-                    <img src="src/images/whos_down_features_icon_chart.svg" loading="lazy" alt="" className="features_icon" />
-                    <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" />
+                    <img src="src/images/overlayed_circle_black_chart.png" loading="lazy" alt="" className="features_icon" />
+                    {/* <img src="src/images/circle_black.png" loading="lazy" alt="" className="circle_black" /> */}
                     <h4 className="header-4">Event analytics</h4>
                     <p className="paragraph">Stop the guesswork around who’s interested in your event, how best to reach
                       them,
