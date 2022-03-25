@@ -1496,6 +1496,8 @@ input:checked + .slider:before {
 
 
 .div-block-8 {
+  // display: flex;
+  // flex-direction: column;
   max-width: 40%;
 }
 
@@ -1981,7 +1983,7 @@ img.social_icons {
 }
 
 .header-4 {
-  margin-top: 0px;
+  margin-top: 50%;
   font-family: Roboto, sans-serif;
   font-size: 24px;
 }
@@ -2007,14 +2009,22 @@ img.social_icons {
 .features_icon {
   margin-top: 20px;
   margin-bottom: 20px;
+  position: absolute;
+  top: 0;
+  left: 50%;
 }
 
 .circle_black {
-  position: relative;
-  left: -192px;
-  top: 0px;
+  position: absolute;
+  left: 40%;
+  top: -5%;
   bottom: 1px;
   max-width: 56%;
+  min-width: 1%;
+}
+
+.div-block-8 > img {
+  position: absolute;
 }
 
 .div-block-10 {
@@ -2632,13 +2642,15 @@ img.social_icons {
 .slider-right {
   position: absolute;
   margin-top: 410px;
-  margin-left: 75%;
+  margin-left: 85%;
+  z-index: 10;
 }
 
 .slider-left {
   position: absolute;
   margin-top: 410px;
   margin-left: -5%;
+  z-index: 10;
 }
 
 .slide-nav {

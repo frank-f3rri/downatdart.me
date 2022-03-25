@@ -135,7 +135,7 @@ class Redesign extends Component {
               )}
 
               {this.state.slidePosn === 1 && (
-              <div className="slide-2 w-slide">
+              <div className="slide-1 w-slide">
                 <div className="w-layout-grid grid-5">
                   <div className="div-block-19">
                     <img src="src/images/whos_down_features_2.png"
@@ -156,7 +156,7 @@ class Redesign extends Component {
 
               {this.state.slidePosn === 2 && (
 
-              <div className="slide-3 w-slide">
+              <div className="slide-1 w-slide">
                 <div className="w-layout-grid grid-5">
                   <div className="div-block-19">
                     <img src="src/images/whos_down_features_3.png"
@@ -179,7 +179,7 @@ class Redesign extends Component {
               )}
 
               {this.state.slidePosn === 3 && (
-              <div className="slide-4 w-slide">
+              <div className="slide-1 w-slide">
                 <div className="w-layout-grid grid-5">
                   <div className="div-block-19">
                     <img src="src/images/whos_down_features_4.png" loading="lazy" alt="" className="image_features" />
